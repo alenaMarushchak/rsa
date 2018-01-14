@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Rsa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css"
+          integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+            integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>Hello is a simple example of <span class="badge badge-secondary">RSA Algorithm </span> in JavaScript</h1>
+
+<div class="jumbotron">
+    <h2 class="display-4">Coding example</h2>
+    <div class="form-group">
+        <label for="text">Simple number p:</label>
+        <input type="text" class="form-control" id="text" value="Мама мила раму">
+    </div>
+    <div class="form-group">
+        <label for="number_p">Simple number p:</label>
+        <input type="text" class="form-control" id="number_p" value="101">
+    </div>
+    <div class="form-group">
+        <label for="number_q">Simple number q:</label>
+        <input type="text" class="form-control" id="number_q" value="103">
+    </div>
+    Answer:
+    <p id="code" class="form-text"></p>
+
+    <button class="btn btn-primary" id="coding">Coding</button>
+</div>
+<div class="jumbotron">
+    <h2 class="display-4">Decoding example</h2>
+    <div class="form-group">
+        <label for="secret_d">Secret key d :</label>
+        <input type="text" class="form-control" id="secret_d" value="10199">
+    </div>
+    <div class="form-group">
+        <label for="secret_n">Secret key n :</label>
+        <input type="text" class="form-control" id="secret_n" value="10403">
+    </div>
+    Answer:
+    <p id="decode" class="form-text"></p>
+
+    <button class="btn btn-primary" id="decoding">Decoding</button>
+</div>
+
+<script src="workWithInputs.js"></script>
+<script src="rsa.js"></script>
+</body>
+</html>
