@@ -36,32 +36,30 @@ $(document).ready(function () {
         '8', '9', '0'];
 
     function coding(p, q, string) {
-        if (!p || !q) {
-            return alert("Enter p and q!");
+        var result;
+        var n;
+        var m;
+        var d;
+        var e_;
+
+        if ((p < 0) && (q < 0)) {
+            return alert("Enter valid p and q! p and q must be positive numbers");
         }
 
-        if ((p > 0) && (q > 0)) {
-            if (!isNumberSimple(p) || !isNumberSimple(q)) {
-                return alert("p or q - not simple numbers!");
-            }
-
-            var result;
-            var n;
-            var m;
-            var d;
-            var e_;
-
-            string = string.toUpperCase();
-
-            n = p * q;
-            m = (p - 1) * (q - 1);
-            d = calculate_d(m);
-            e_ = calculate_e(d, m);
-
-            result = rSA_Endoce(string, e_, n);
-
-            return result.join(',');
+        if (!isNumberSimple(p) || !isNumberSimple(q)) {
+            return alert("p or q - not simple numbers!");
         }
+
+        string = string.toUpperCase();
+
+        n = p * q;
+        m = (p - 1) * (q - 1);
+        d = calculate_d(m);
+        e_ = calculate_e(d, m);
+
+        result = rsaEndoce(string, e_, n);
+
+        return result.join(',');
     }
 
     function decoding(d, n, code) {
@@ -69,13 +67,11 @@ $(document).ready(function () {
             return alert('Something must be code! ');
         }
 
-        if ((d > 0) && (n > 0)) {
-            return rSA_Dedoce(code, d, n);
-        }
-        else {
-            alert("Enter secret key!");
+        if ((d < 0) && (n < 0)) {
+            return alert("Enter valid secret key! d and n must be positive numbers");
         }
 
+        return rsaDedoce(code, d, n);
     }
 
     function isNumberSimple(number) {
@@ -94,7 +90,7 @@ $(document).ready(function () {
         return true;
     }
 
-    function rSA_Endoce(s, e, n) {
+    function rsaEndoce(s, e, n) {
         var result = [];
         var bi;
 
@@ -109,7 +105,7 @@ $(document).ready(function () {
         return result;
     }
 
-    function rSA_Dedoce(input, d, n) {
+    function rsaDedoce(input, d, n) {
         var result = "";
         var bi;
         var data = input.split(',');
@@ -144,10 +140,11 @@ $(document).ready(function () {
         var e = 10;
 
         while (true) {
-            if ((e * d) % m === 1)
+            if ((e * d) % m === 1){
                 break;
-            else
-                e++;
+            }
+
+            e++;
         }
 
         return e;
@@ -193,7 +190,7 @@ $(document).ready(function () {
         var product = 0;
 
         for (var i = 0; i < Bdigits; i++) {
-            if (i === 0) {
+            if (!i) {
                 AtoBmodC[0] = mymod(A, C);
             }
             else {
